@@ -168,7 +168,8 @@ def main():
 
     rows = list(cases_sheet.iter_rows(values_only=True))
 
-    f=plt.figure(figsize=(20,10))
+    f = plt.figure(figsize=(20,10))
+    plt.subplot(131)
     for i in range(3):
         row_number = 6+i                          # start in row 6
         I = rows[row_number][1:366]
@@ -197,8 +198,8 @@ def main():
         print(result.values)
 
         # plotting:
-        plt.subplot(1,3,i+1)
-        result.plot_fit(datafmt=".", title=state, ylabel="I", ax=plt.subplot(1,3,i+1))
+        result.plot_fit(datafmt=".", title=state, ylabel="I", 
+                        xlabel="days", ax=plt.subplot(1, 3, i+1))
     plt.show()
     
 if __name__ == "__main__":
